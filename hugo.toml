@@ -1,0 +1,32 @@
+baseURL = 'https://uxxzini.gigthub.io/'
+languageCode = "ko"
+title = "Landscape Architecture × Data × AI"
+theme = "PaperMod"
+
+[pagination]
+  pagerSize = 5
+
+
+[params]
+  ShowReadingTime = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  defaultTheme = "auto"
+
+[menu]
+  [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 1
+  [[menu.main]]
+    name = "Urban & Landscape Data"
+    url = "/urban/"
+    weight = 2
+  [[menu.main]]
+    name = "AI 실험"
+    url = "/ai/"
+    weight = 3
+  [[menu.main]]
+    name = "Visualization & Web"
+    url = "/web/"
+    weight = 4
