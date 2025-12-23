@@ -15,7 +15,8 @@ jobs:
 
       - uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.125.7'
+          hugo-version: '0.153.0'
+          extended: true
 
       - run: hugo --minify
 
