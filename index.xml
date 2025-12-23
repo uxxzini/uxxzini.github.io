@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Landscape Architecture × Data × AI</title>
-    <link>https://uxxzini.gigthub.io/</link>
+    <link>https://uxxzini.github.io/</link>
     <description>Recent content on Landscape Architecture × Data × AI</description>
     <generator>Hugo -- 0.153.2</generator>
     <language>ko</language>
     <lastBuildDate>Tue, 23 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://uxxzini.gigthub.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://uxxzini.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>테스트 프로젝트</title>
-      <link>https://uxxzini.gigthub.io/projects/first-project/</link>
+      <link>https://uxxzini.github.io/projects/first-project/</link>
       <pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://uxxzini.gigthub.io/projects/first-project/</guid>
+      <guid>https://uxxzini.github.io/projects/first-project/</guid>
       <description></description>
     </item>
   </channel>
