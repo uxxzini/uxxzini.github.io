@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+/* Google Fonts에서 Montserrat 가져오기 */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* Pretendard 폰트 가져오기 */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+/* 부드러운 스크롤 효과 추가 */
+html {
+    scroll-behavior: smooth;
+  }

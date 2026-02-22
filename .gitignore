@@ -1,24 +1,42 @@
-# Logs
+# --- Dependencies & Build ---
+# 라이브러리 및 빌드 결과물 (이미지 상의 dist, node_modules)
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# --- Environment Variables ---
+# 보안이 필요한 환경 변수 (절대 푸시하면 안 됨)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# --- Logs & Caches ---
+# 로그 파일 및 툴 캐시
 logs
 *.log
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+yarn-error.js*
+.eslintcache
+.vite/
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
+# --- Editor & OS ---
+# IDE 설정 및 운영체제 임시 파일
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# --- Others ---
+# 파이썬 작업 시 발생할 수 있는 캐시 (데이터 분석 대비)
+__pycache__/
+*.py[cod]
