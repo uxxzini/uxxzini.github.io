@@ -399,11 +399,11 @@ function App() {
         <div className="flex flex-col items-center text-center">
           {/* 위치 & 이메일 (일반 글자로 작성) */}
           <div className="mb-6 space-y-1">
-            <p className="font-display text-[22px] font-[700] tracking-[0.1em] uppercase text-[#363636]">
+            <p className="font-display text-[22px] font-semibold tracking-[0.1em] uppercase text-[#363636]">
               Seoul, South Korea
             </p>
-            <p className="font-pretendard text-[18px] font-[500] tracking-[0.1em] text-[#d2d2d2]">
-              gmail.com
+            <p className="font-pretendard text-[18px] font-medium tracking-[0.1em] text-[#d2d2d2]">
+              zini.works.lab@gmail.com
             </p>
           </div>
 
