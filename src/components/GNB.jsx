@@ -13,7 +13,7 @@ const GNB = () => {
   return (
     <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-[150]">
       {/* 외부 컨테이너 */}
-      <div className="flex items-center bg-white/70 backdrop-blur-lg border border-[#f0f0f0] rounded-full p-1 shadow-md">
+      <div className="flex items-center bg-white/70 backdrop-blur-lg border border-[#f7f7f9] rounded-full p-1 shadow-md">
         {navItems.map((item) => (
           <NavLink
             key={item.path}
@@ -31,7 +31,7 @@ const GNB = () => {
                 {isActive && (
                   <motion.div
                     layoutId="active-pill"
-                    className="absolute inset-0 bg-[#f0f0f0] rounded-full"
+                    className="absolute inset-0 bg-[#f7f7f9] rounded-full"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
