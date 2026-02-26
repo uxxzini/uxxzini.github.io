@@ -11,7 +11,8 @@ const Card = ({ children, colSpan = "col-span-12", aspect = "aspect-auto", class
       ${aspect} 
       bg-[#f7f7f9] 
       rounded-[20px] 
-      p-8 
+      py-6
+      px-7
       border border-[#f0f0f0] 
       transition-all duration-300
       ${className}
