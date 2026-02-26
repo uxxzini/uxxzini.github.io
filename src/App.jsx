@@ -1,6 +1,6 @@
 import React from 'react';
 // 분리한 컴포넌트들을 불러옵니다
-import MoreWork from './components/MoreWork';
+import HeroSection from './components/HeroSection';
 import About from './components/About';
 import Contact from './components/Contact';
 import AboutSidePeek from './components/AboutSidePeek';
@@ -9,37 +9,12 @@ import WorkSidePeek from './components/WorkSidePeek';
 function App() {
   return (
     <div className="select-none min-h-screen bg-white text-black font-sans flex flex-col items-center overflow-x-hidden">
-      
-      {/* --- 1. 상단 여백 (Header) --- */}
-      <header className="h-10 md:h-20 w-full"></header>
 
-      {/* --- 2. WORK SECTION --- */}
-      <section id="work" className="w-full flex flex-col items-center">
-        
-        {/* 2.1 히어로 영역: 위치 + 이메일 + 메인 타이틀 */}
-        <div className="flex flex-col items-center text-center">
-          <div className="mb-6 space-y-1">
-            <p className="font-display text-[22px] font-semibold tracking-[0.1em] uppercase text-[#363636]">
-              Seoul, South Korea
-            </p>
-            <p className="font-pretendard text-[18px] font-medium tracking-[0.1em] text-[#d2d2d2]">
-              zini.works.lab@gmail.com
-            </p>
-          </div>
+      {/* --- 1. HeroSection --- */}
+      <HeroSection />
 
-          <h1 className="font-display text-[60px] font-[900] text-[#363636] leading-none tracking-tighter uppercase">
-            YUJIN PARK
-          </h1>
+      {/* --- 2. NOREWORK SECTION --- */}
 
-          <h2 className="flex flex-col items-center justify-center mb-32">
-            <span className="font-display text-[60px] font-[900] text-[#d2d2d2] uppercase leading-[0.85]">LANDSCAPE,</span>
-            <span className="font-display text-[60px] font-[900] text-[#d2d2d2] uppercase leading-[0.85]">DESIGNER</span>
-          </h2>
-        </div>
-      </section>
-
-      {/* 헤더와 리스트가 통합된 컴포넌트 호출 */}
-      <MoreWork />
 
       {/* --- 3. ABOUT SECTION --- */}
       <About />
