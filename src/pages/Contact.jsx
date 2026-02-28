@@ -8,7 +8,6 @@ import instaImg from '../assets/zini.jpg';
 
 
 import yujinLogo from '../assets/yujin.svg';
->>>>>>> 9441410 (feat: implement interactive contact cards with iMessage-style chatbot)
 
 
 const Contact = () => {
