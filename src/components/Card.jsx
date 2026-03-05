@@ -9,7 +9,7 @@ const Card = ({ children, colSpan = "col-span-12", aspect = "aspect-auto", class
     <div className={`
       ${colSpan} 
       ${aspect} 
-      bg-[#f7f7f9] 
+      bg-[#fbfbfb] 
       rounded-[20px] 
       py-6
       px-7

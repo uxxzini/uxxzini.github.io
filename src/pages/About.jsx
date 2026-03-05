@@ -28,6 +28,7 @@ const About = () => {
   const [isInstaHovered, setIsInstaHovered] = useState(false);
   const [activePhotoTab, setActivePhotoTab] = useState('grid');
   const [photoIndex, setPhotoIndex] = useState(0);
+  const [lang, setLang] = useState('ko');
 
   const photosData = {
     grid: [grid_1, grid_2, grid_3, grid_4, grid_5],
@@ -72,9 +73,137 @@ const About = () => {
   return (
     <PageLayout>
       {/* 1. 왼쪽 기둥 */}
-      <div className="col-span-12 md:col-span-6">
-        <Card className="h-full bg-white border border-[#e5e5e5] p-10 flex flex-col justify-between">
-          <h1 className="text-2xl text-[#adadad] font-light italic">Who is Yujin? ✶ 자기소개서가 들어올 자리입니다.</h1>
+      {/* md:h-auto와 relative를 통해 우측 기둥이 결정한 높이를 그대로 따라가게 만듭니다. */}
+      <div className="col-span-12 md:col-span-6 relative h-[600px] md:h-auto">
+        {/* md:absolute md:inset-0 속성으로 카드가 스스로 커지지 않고 부모 높이에 딱 맞춰지도록 강제합니다. */}
+        <Card className="w-full h-full md:absolute md:inset-0 p-5 md:p-7 flex flex-col overflow-hidden z-10">
+          
+          {/* Main Title & Language Toggle */}
+          <div className="flex items-center justify-between shrink-0 mb-4 z-10">
+            <h1 className="text-[20px] md:text-[24px] font-extrabold text-[#363636] tracking-tight">
+              Who I am.
+            </h1>
+            
+            {/* ✨ 한/영 전환 토글 스위치 */}
+            <div 
+              className="relative flex items-center bg-[#f0f0f0] rounded-full p-1 shadow-inner w-[84px] h-[32px] cursor-pointer"
+              onClick={() => setLang(lang === 'ko' ? 'en' : 'ko')}
+            >
+              {/* 스르륵 움직이는 하얀색 배경 캡슐 */}
+              <div 
+                className={`absolute left-1 w-[36px] h-[24px] bg-white rounded-full shadow-sm transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] 
+                  ${lang === 'ko' ? 'translate-x-0' : 'translate-x-[40px]'}`} 
+              />
+              {/* KR 텍스트 */}
+              <span className={`relative z-10 flex-1 text-center text-[11px] font-bold transition-colors duration-300 
+                ${lang === 'ko' ? 'text-[#363636]' : 'text-[#adadad]'}`}>
+                KR
+              </span>
+              {/* EN 텍스트 */}
+              <span className={`relative z-10 flex-1 text-center text-[11px] font-bold transition-colors duration-300 
+                ${lang === 'en' ? 'text-[#363636]' : 'text-[#adadad]'}`}>
+                EN
+              </span>
+            </div>
+          </div>
+
+          {/* 내용 (내부 스크롤) */}
+          <div className="flex-1 overflow-y-auto pr-0 pb-4 flex flex-col gap-7 relative z-0" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            
+            <h2 className="text-[16px] md:text-[20px] font-medium text-[#458C95] leading-snug mb-3 italic">
+              I design structure<br />
+              : in spaces, in data, and in the projects I take on.
+            </h2>
+
+            {/* 1. WHERE I STARTED */}
+            <div className="flex flex-col gap-2">
+              <h3 className="text-[11px] font-bold text-[#767676] uppercase">Where I started</h3>
+              <p className="text-[13.5px] md:text-[14px] text-[#363636] leading-[1.7] font-medium text-justify">
+                {lang === 'ko' ? (
+                  <>공공기관에서 조경 데이터를 다루며 커리어를 시작했습니다. 식재 정보와 공간 활용 현황을 기록하고 관리하는 조용한 일상 속에서, 저는 단순한 기록 이상의 것을 발견했습니다. 흩어진 정보에 구조를 부여하고, 불일치를 일관성으로 바꾸는 그 순간 — 물리적 공간을 다루는 일 속에서 <strong className="text-[#363636] font-semibold">데이터의 진짜 매력</strong>을 처음 느꼈습니다.</>
+                ) : (
+                  <>My career began at a public institution, managing landscape data — recording planting information, documenting spatial usage, and keeping it all consistent. In that quiet, detail-driven work, I discovered something bigger than the task itself: the moment you give scattered information a structure, everything becomes clearer. That's where my <strong className="text-[#363636] font-semibold">passion for data</strong> was born — not in a classroom, but in the field.</>
+                )}
+              </p>
+            </div>
+
+            {/* 2. WHAT I USED TO DO */}
+            <div className="flex flex-col gap-2">
+              <h3 className="text-[11px] font-bold text-[#767676] uppercase">What I used to do</h3>
+              <p className="text-[13.5px] md:text-[14px] text-[#363636] leading-[1.7] font-medium text-justify">
+                {lang === 'ko' ? (
+                  <>생활정원 40개소 조성 사업에 참여해, 38개 시공사의 제각각인 서류 양식을 단일 표준으로 통합하고 검토 프로세스 개선에 기여했습니다. 그 과정에서 <strong className="text-[#363636] font-semibold">135억 원 규모의 예산이 100% 집행</strong>되는 현장을 함께 만들었습니다. 코로나 시기 학생회장으로 10인 팀을 이끌며 전례 없는 기획을 성공시킨 경험은, 불확실한 환경에서도 문제의 본질을 찾아 새로운 해결책을 만들어내는 훈련이 되었습니다.</>
+                ) : (
+                  <>I contributed to a 40-site urban garden development project, helping standardize documentation across 38 contractors with entirely different filing formats — and improving the review process from the ground up. Together, we saw <strong className="text-[#363636] font-semibold">₩13.5B in budget executed at 100%</strong>. As student president during COVID-19, I led a 10-person team through an unprecedented initiative, sharpening my instinct for finding the root of a problem and building solutions that actually work.</>
+                )}
+              </p>
+            </div>
+
+            {/* 3. WHAT I DO NOW */}
+            <div className="flex flex-col gap-2">
+              <h3 className="text-[11px] font-bold text-[#767676] uppercase">What I do now</h3>
+              <p className="text-[13.5px] md:text-[14px] text-[#363636] leading-[1.7] font-medium ">
+                {lang === 'ko' ? (
+                  <>조경 전문가를 넘어, Python과 통계를 다루는 <strong className="text-[#363636] font-semibold">데이터 분석가</strong>이자 React로 제품을 만드는 <strong className="text-[#363636] font-semibold">웹 개발자</strong>로 영역을 확장하고 있습니다. <br />타고난 완벽주의를 명확한 우선순위 설정으로 보완하며, 디테일과 프로젝트 속도 사이의 균형을 스스로 조율합니다.</>
+                ) : (
+                  <>I've grown beyond landscape architecture into <strong className="text-[#363636] font-semibold">data analytics</strong> (Python, statistics) and <strong className="text-[#363636] font-semibold">web development</strong> (React, Tailwind). I'm a natural perfectionist — one who's learned to set clear priorities and balance sharp attention to detail with the momentum a real project demands.</>
+                )}
+              </p>
+            </div>
+
+            {/* 4. WHAT I'M LOOKING FOR */}
+            <div className="flex flex-col gap-2">
+              <h3 className="text-[11px] font-bold text-[#767676] uppercase">What I'm looking for</h3>
+              <p className="text-[13.5px] md:text-[14px] text-[#363636] leading-[1.7] font-medium">
+                {lang === 'ko' ? (
+                  <>궁극적으로는 사람들에게 영감을 주는 <strong className="text-[#363636] font-semibold">정원 작가</strong>이자 <strong className="text-[#363636] font-semibold">공간 디자이너</strong>를 꿈꿉니다. <br />나아가 데이터 분석 역량을 융합해, AI 시대의 <strong className="text-[#363636] font-semibold">이노베이터 그리고 PM</strong>으로서 물리적 공간과 디지털 기술을 혁신적으로 연결하는 일을 하고 싶습니다.</>
+                ) : (
+                  <>My long-term vision is to become a <strong className="text-[#363636] font-semibold">garden writer</strong> and <strong className="text-[#363636] font-semibold">spatial designer</strong> who inspires people. And beyond that — to merge my analytical background with emerging technology, working as an <strong className="text-[#363636] font-semibold">AI-era innovator and PM</strong> who bridges the physical world of space with the digital world of possibility.</>
+                )}
+              </p>
+            </div>
+
+          </div>
+          
+          {/* 하단 닻(Anchor) 역할을 하는 아이콘 바 */}
+          <div className="shrink-0 pt-5 mt-4 border-t border-[#f0f0f0] flex items-center gap-5 text-[#adadad] z-10 bg-[#fbfbfb]">
+            
+            {/* 1. Email Icon (클릭 시 메일 쓰기 창 열림) */}
+            <a 
+              href="mailto:zini.works.lab@gmail.com"
+              className="relative group hover:text-[#1d1d1f] transition-colors block"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              
+              {/* ✨ 커스텀 툴팁 */}
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1 bg-[#363636] text-white text-[11px] font-medium rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 shadow-sm w-max pointer-events-none">
+                Email Me
+                <div className="absolute top-full left-1/2 -translate-x-1/2 border-[4px] border-transparent border-t-[#363636]"></div>
+              </div>
+            </a>
+
+            {/* 2. GitHub Icon (클릭 시 새 창에서 깃허브 열림) */}
+            <a 
+              href="https://github.com/uxxzini" 
+              target="_blank" // 새 창에서 열기
+              rel="noopener noreferrer" // 보안을 위한 필수 속성
+              className="relative group hover:text-[#1d1d1f] transition-colors block"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+              
+              {/* ✨ 커스텀 툴팁 */}
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1 bg-[#363636] text-white text-[11px] font-medium rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 shadow-sm w-max pointer-events-none">
+                GitHub
+                <div className="absolute top-full left-1/2 -translate-x-1/2 border-[4px] border-transparent border-t-[#363636]"></div>
+              </div>
+            </a>
+            
+          </div>
+
         </Card>
       </div>
 
@@ -195,8 +324,211 @@ const About = () => {
           </div>
         </Card>
 
-        {/* ⏳ 타임라인 카드 */}
-        <Card className="flex-1 bg-white border border-[#e5e5e5]" />
+        {/* 타임라인 카드 */}
+        {/* [우측 2번] 8-Year Full-Cover Timeline Card */}
+        <Card className="flex-1 bg-white border border-[#e5e5e5] p-0 relative overflow-hidden">
+          
+          {/* 2026 */}
+          <div className="group absolute inset-x-0 top-0 h-[calc(100%/6)] hover:top-0 hover:h-full z-[1] hover:z-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] bg-white border-b border-[#f0f0f0] overflow-hidden cursor-default flex flex-col">
+            <div className="shrink-0 h-full group-hover:h-[70px] flex items-center px-6 transition-all duration-500">
+              <h3 className="text-[15px] font-bold text-[#363636] group-hover:text-[24px] group-hover:text-[#1d1d1f] tracking-tight transition-all duration-500">2026</h3>
+            </div>
+            <div className="flex-1 px-6 pb-6 overflow-y-auto opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 flex flex-col gap-5" style={{ scrollbarWidth: 'none' }}>
+              
+              <div className="flex flex-col gap-1">
+                {/* 구분자 | 색상 #adadad 및 mx-1 적용 */}
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">02 - Present <span className="text-[#adadad] mx-1">|</span> Career</span>
+                {/* 폰트 굵기 font-medium 적용 */}
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">조경회사 입사 및 실무 시작</p>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">01 - 04 <span className="text-[#adadad] mx-1">|</span> Experience</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">2026 서울국제정원박람회 시민동행정원 참여</p>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">01 <span className="text-[#adadad] mx-1">|</span> Internship</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">르노코리아 (Renault Korea Corp.) 인턴십 수료</p>
+              </div>
+
+            </div>
+          </div>
+
+          {/* 📍 2025 */}
+          <div className="group absolute inset-x-0 top-[calc(100%/6*1)] h-[calc(100%/6)] hover:top-0 hover:h-full z-[2] hover:z-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] bg-[#fcfcfc] hover:bg-white border-b border-[#f0f0f0] overflow-hidden cursor-default flex flex-col">
+            <div className="shrink-0 h-full group-hover:h-[70px] flex items-center px-6 transition-all duration-500">
+              <h3 className="text-[15px] font-bold text-[#363636] group-hover:text-[24px] group-hover:text-[#1d1d1f] tracking-tight transition-all duration-500">2025</h3>
+            </div>
+            <div className="flex-1 px-6 pb-6 overflow-y-auto opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 flex flex-col gap-5" style={{ scrollbarWidth: 'none' }}>
+              
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">10 - 12 <span className="text-[#adadad] mx-1">|</span> Experience</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">공모전: 여수광양항 AI 혁신제안 대국민 공모</p>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">09 - 11 <span className="text-[#adadad] mx-1">|</span> Experience</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">2025년 데이터 문제해결은행 활용 경진대회_데이터레시피 개발</p>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">07 - 12 <span className="text-[#adadad] mx-1">|</span> Education</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">
+                  BDIA 빅데이터 전문가 인재양성 사업 참여
+                  {/* 세부 항목들 (들여쓰기 및 연한 텍스트로 계층 분리) */}
+                  <span className="block text-[12.5px] text-[#555] mt-1">- 프로젝트: 영화 흥행 분석</span>
+                  <span className="block text-[12.5px] text-[#555] mt-0.5">- 프로젝트: 해양 기상 변수에 따른 어획량 분석 및 예측 모델 개발</span>
+                  <span className="block text-[12.5px] text-[#555] mt-0.5">- 프로젝트: 이미지 유사도 기반 가방 추천 시스템 개발</span>
+                  <span className="block text-[12.5px] text-[#555] mt-0.5">- 프로젝트: 인공지능 기반 축제 안전관리 플랫폼</span>
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">02 <span className="text-[#adadad] mx-1">|</span> Education</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">부산대학교 조경학과(부전공 도시공학과) 공학사 학위 취득</p>
+              </div>
+
+            </div>
+          </div>
+
+          {/* 📍 2024 */}
+          <div className="group absolute inset-x-0 top-[calc(100%/6*2)] h-[calc(100%/6)] hover:top-0 hover:h-full z-[3] hover:z-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] bg-white border-b border-[#f0f0f0] overflow-hidden cursor-default flex flex-col">
+            <div className="shrink-0 h-full group-hover:h-[70px] flex items-center px-6 transition-all duration-500">
+              <h3 className="text-[15px] font-bold text-[#363636] group-hover:text-[24px] group-hover:text-[#1d1d1f] tracking-tight transition-all duration-500">2024</h3>
+            </div>
+            <div className="flex-1 px-6 pb-6 overflow-y-auto opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 flex flex-col gap-5" style={{ scrollbarWidth: 'none' }}>
+              
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">01 - 11 <span className="text-[#adadad] mx-1">|</span> Career</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">
+                  국립세종수목원 정원사업센터
+                  <span className="block text-[12.5px] text-[#555] mt-1">- 생활밀착형 숲 사업 운영보조원</span>
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          {/* 📍 2023 */}
+          <div className="group absolute inset-x-0 top-[calc(100%/6*3)] h-[calc(100%/6)] hover:top-0 hover:h-full z-[4] hover:z-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] bg-[#fcfcfc] hover:bg-white border-b border-[#f0f0f0] overflow-hidden cursor-default flex flex-col">
+            <div className="shrink-0 h-full group-hover:h-[70px] flex items-center px-6 transition-all duration-500">
+              <h3 className="text-[15px] font-bold text-[#363636] group-hover:text-[24px] group-hover:text-[#1d1d1f] tracking-tight transition-all duration-500">2023</h3>
+            </div>
+            <div className="flex-1 px-6 pb-6 overflow-y-auto opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 flex flex-col gap-5" style={{ scrollbarWidth: 'none' }}>
+              
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">09 - 12 <span className="text-[#adadad] mx-1">|</span> Career</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">
+                  국립세종수목원 정원사업센터
+                  <span className="block text-[12.5px] text-[#555] mt-1">- 생활밀착형 숲 사업 운영보조원</span>
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          {/* 📍 2022 */}
+          <div className="group absolute inset-x-0 top-[calc(100%/6*4)] h-[calc(100%/6)] hover:top-0 hover:h-full z-[5] hover:z-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] bg-white border-b border-[#f0f0f0] overflow-hidden cursor-default flex flex-col">
+            <div className="shrink-0 h-full group-hover:h-[70px] flex items-center px-6 transition-all duration-500">
+              <h3 className="text-[15px] font-bold text-[#363636] group-hover:text-[24px] group-hover:text-[#1d1d1f] tracking-tight transition-all duration-500">2022</h3>
+            </div>
+            <div className="flex-1 px-6 pb-6 overflow-y-auto opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 flex flex-col gap-5" style={{ scrollbarWidth: 'none' }}>
+              
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">10 - 12 <span className="text-[#adadad] mx-1">|</span> Career</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">
+                  국립백두대간수목원 정원사업센터 기간제근로자
+                  <span className="block text-[12.5px] text-[#555] mt-1">- 생활밀착형 숲 사업 운영보조원</span>
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">10 <span className="text-[#adadad] mx-1">|</span> Experience</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">
+                  2022 대한민국 정원산업 박람회 반짝(pop-up)정원 경연대회 참여
+                  <span className="block text-[12.5px] text-[#555] mt-1">- 작품명: 정(情)류장:마음을 기다리는 곳</span>
+                  <span className="block text-[12.5px] text-[#555] mt-0.5">- 한국수목원정원관리원장상 수상</span>
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">07 <span className="text-[#adadad] mx-1">|</span> Practicum</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">국립백두대간수목원 전시원관리실 현장실습</p>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">04 <span className="text-[#adadad] mx-1">|</span> Experience</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">
+                  제 18회 부산도시농업박람회 전국텃밭정원 디자인 공모전 참여
+                  <span className="block text-[12.5px] text-[#555] mt-1">- 작품명: 알 이즈 웰(All is well)</span>
+                  <span className="block text-[12.5px] text-[#555] mt-0.5">- 우수상 수상</span>
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">03 - 06 <span className="text-[#adadad] mx-1">|</span> Practicum</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">부산도시공사 토목사업처 조경사업부 현장실습</p>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">01 - 07 <span className="text-[#adadad] mx-1">|</span> Research(A.E.Lab.)</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">부산 태종대 식생 조사 및 보전관리 방안 연구 참여</p>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">01 - 02 <span className="text-[#adadad] mx-1">|</span> Practicum</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">국립세종수목원 전시원관리실 현장실습</p>
+              </div>
+
+            </div>
+          </div>
+
+          {/* 📍 2021 */}
+          <div className="group absolute inset-x-0 top-[calc(100%/6*5)] h-[calc(100%/6)] hover:top-0 hover:h-full z-[6] hover:z-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] bg-[#fcfcfc] hover:bg-white overflow-hidden cursor-default flex flex-col">
+            <div className="shrink-0 h-full group-hover:h-[70px] flex items-center px-6 transition-all duration-500">
+              <h3 className="text-[15px] font-bold text-[#363636] group-hover:text-[24px] group-hover:text-[#1d1d1f] tracking-tight transition-all duration-500">2021</h3>
+            </div>
+            <div className="flex-1 px-6 pb-6 overflow-y-auto opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 flex flex-col gap-5" style={{ scrollbarWidth: 'none' }}>
+              
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">10 - '22.07. <span className="text-[#adadad] mx-1">|</span> Research(A.E.Lab.)</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">민간공원조성 특례사업 추진효과 극대화를 위한 공원시설 설계 보완 및 특화 추진계획 참여</p>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">08 - 10 <span className="text-[#adadad] mx-1">|</span> Research(A.E.Lab.)</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">경상남도 교내 수목 조사 및 현황도면 작성 용역 참여</p>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">07 <span className="text-[#adadad] mx-1">|</span> Project</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">부산서여자고등학교 텃밭정원 시공</p>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">04 - 10 <span className="text-[#adadad] mx-1">|</span> Research(A.E.Lab.)</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">산림습원 등 특정지역 생태계 서비스 평가 연구 참여</p>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">03 - 12 <span className="text-[#adadad] mx-1">|</span> Experience</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">부산대학교 조경학과 학회장</p>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-bold text-[#86868b] tracking-wider uppercase">03 - 09 <span className="text-[#adadad] mx-1">|</span> Experience</span>
+                <p className="text-[13.5px] text-[#1d1d1f] font-medium leading-snug">
+                  정원드림프로젝트 참여
+                  <span className="block text-[12.5px] text-[#555] mt-1">- 작품명: 유생의 여정(구미시 인동향교 앞 녹지)</span>
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+        </Card>
+
       </div>
     </PageLayout>
   );
