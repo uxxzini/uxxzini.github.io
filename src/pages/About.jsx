@@ -48,7 +48,7 @@ const About = () => {
 
   // 🎵 플레이리스트 데이터
   const playlist = [
-    { id: 1, title: "Let's!", artist: "호피폴라", cover: "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=200", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
+    { id: 1, title: "Let's!", artist: "Yujin", cover: "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=200", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
     { id: 2, title: "Digital Garden", artist: "Yujin", cover: "https://images.unsplash.com/photo-1416879598555-aa456d2003c2?q=80&w=200", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
     { id: 3, title: "Cooking Nature", artist: "React", cover: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=200", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" }
   ];
@@ -220,12 +220,12 @@ const About = () => {
               <div className="w-10 h-10 rounded-full overflow-hidden bg-[#adadad] border border-white/20"><img src={instaImg} className="w-full h-full object-cover" /></div>
               <div className="flex flex-col">
                 <span className={`text-[13px] font-bold transition-colors ${isInstaHovered ? 'text-white' : ''}`}>YUJIN</span>
-                <span className={`text-[11px] transition-colors ${isInstaHovered ? 'text-white/70' : 'text-[#adadad]'}`}>@zini.works</span>
+                <span className={`text-[11px] transition-colors ${isInstaHovered ? 'text-white/70' : 'text-[#adadad]'}`}>@plotxbloom</span>
               </div>
             </div>
             <p className={`mt-8 text-[14px] leading-relaxed font-medium transition-colors ${isInstaHovered ? 'text-white/90' : ''}`}>자연의 질서와 디지털 로직 사이, <br />그 찰나의 영감들을 기록합니다. ✶</p>
           </div>
-          <a href="https://www.instagram.com/zini.works" onMouseEnter={() => setIsInstaHovered(true)} onMouseLeave={() => setIsInstaHovered(false)} className={`w-full py-2.5 border rounded-xl flex items-center justify-center gap-1.5 transition-all z-10 relative ${isInstaHovered ? 'bg-white/10 border-white/20 text-white backdrop-blur-sm' : 'bg-white border-[#e5e5ea] shadow-sm'}`}>
+          <a href="https://www.instagram.com/plotxbloom" onMouseEnter={() => setIsInstaHovered(true)} onMouseLeave={() => setIsInstaHovered(false)} className={`w-full py-2.5 border rounded-xl flex items-center justify-center gap-1.5 transition-all z-10 relative ${isInstaHovered ? 'bg-white/10 border-white/20 text-white backdrop-blur-sm' : 'bg-white border-[#e5e5ea] shadow-sm'}`}>
             <span className="text-[12px] font-bold">View fragments</span>
           </a>
         </Card>

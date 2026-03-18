@@ -328,7 +328,7 @@ const Contact = () => {
                 YUJIN 
               </span>
               <span className={`text-[11px] transition-colors duration-300 ${isCtaHovered ? 'text-white/70' : 'text-[#adadad]'}`}>
-                @zini.works
+                @plotxbloom
               </span>
             </div>
           </div>
@@ -338,7 +338,7 @@ const Contact = () => {
         </div>
 
         <a 
-          href="https://www.instagram.com/zini.works" 
+          href="https://www.instagram.com/plotxbloom" 
           target="_blank" 
           rel="noopener noreferrer"
           onMouseEnter={() => setIsCtaHovered(true)}
